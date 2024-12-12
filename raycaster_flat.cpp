@@ -175,11 +175,12 @@ int main(int /*argc*/, char * /*argv*/[]) {
             // choose wall color
             ColorRGB color;
             switch (worldMap[mapX][mapY]) {
-                case 1:  color = RGB_Red; break;    // red
-                case 2:  color = RGB_Green; break;  // green
-                case 3:  color = RGB_Blue; break;   // blue
-                case 4:  color = RGB_White; break;  // white
-                default: color = RGB_Yellow; break; // yellow
+                case 1:  color = RGB_Red; break;
+                case 2:  color = RGB_Green; break;
+                case 3:  color = RGB_Yellow; break;
+                case 4:  color = RGB_Blue; break;
+                case 5:  color = RGB_Magenta; break;
+                default: color = RGB_Grey; break;
             }
 
             // give x and y sides different brightness
