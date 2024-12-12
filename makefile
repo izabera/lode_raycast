@@ -8,7 +8,8 @@ LDLIBS += -lSDL
 bins = raycaster_flat \
        raycaster_textured \
        raycaster_floor \
-       raycaster_sprites
+       raycaster_sprites \
+       raycaster_pitch
 
 all: $(bins)
 clean:
