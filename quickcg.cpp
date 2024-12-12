@@ -239,7 +239,7 @@ void waitFrame(double oldTime, double frameDuration) // in seconds
 // per frame. Never put key input code right before done() or SDL may see the key as SDL_QUIT
 //
 // delay makes CPU have some free time, use once per frame to avoid 100% usage of a CPU core
-bool done(bool quit_if_esc, bool delay) {
+bool done(bool delay) {
     if (delay)
         SDL_Delay(5); // so it consumes less processing power
     while (SDL_PollEvent(&event)) {
@@ -1585,7 +1585,7 @@ int decodePNG(std::vector<unsigned char> &out_image, unsigned long &image_width,
                 return;
             size_t pos = 33;                 // first byte of the first chunk after the header
             std::vector<unsigned char> idat; // the data from idat chunks
-            bool IEND = false, known_type = true;
+            bool IEND = false;
             info.key_defined = false;
             while (!IEND) // loop through the chunks, ignoring unknown chunks and stopping at IEND
                           // chunk. IDAT data is put at the start of the in buffer
@@ -1677,7 +1677,6 @@ int decodePNG(std::vector<unsigned char> &out_image, unsigned long &image_width,
                     } // error: unknown critical chunk (5th bit of first byte of chunk type is 0)
                     pos += (chunkLength +
                             4); // skip 4 letters and uninterpreted data of unimplemented chunk
-                    known_type = false;
                 }
                 pos += 4; // step over CRC (which is ignored)
             }

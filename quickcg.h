@@ -183,7 +183,7 @@ bool onScreen(int x, int y);
 void sleep();
 void sleep(double seconds);
 void waitFrame(double oldTime, double frameDuration); // in seconds
-bool done(bool quit_if_esc = true, bool delay = true);
+bool done(bool delay = true);
 void end();
 void readKeys();
 void getMouseState(int &mouseX, int &mouseY);
