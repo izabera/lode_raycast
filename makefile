@@ -1,16 +1,14 @@
 MAKEFLAGS += -j$(nproc)
-
-CXX = clang++
-CXXFLAGS = -ggdb3 -Wall -Wextra
-LDLIBS += -lSDL
-
-CXXFLAGS += -MMD -MP
 LINK.o = $(CXX) $(LDFLAGS) $(TARGET_ARCH)
 
+CXX = clang++
+CXXFLAGS = -ggdb3 -Wall -Wextra -MMD -MP
+LDLIBS += -lSDL
+
 bins = raycaster_flat \
-	   raycaster_textured \
-	   raycaster_floor \
-	   raycaster_sprites
+       raycaster_textured \
+       raycaster_floor \
+       raycaster_sprites
 
 all: $(bins)
 clean:
